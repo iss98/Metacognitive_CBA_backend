@@ -1,0 +1,130 @@
+{
+  "schema_version": "1.2.0",
+  "problem_id": "round_table_nonzero_adjacent_sum",
+  "title": "원탁의 수 배치",
+  "stem": "서로 구별되는 n명의 학생이 원탁에 같은 간격으로 앉습니다. 각자 S={1, -1, i, -i} (i^2=-1) 중 하나를 씁니다. 이웃한 두 학생의 수의 합은 0이 아니어야 합니다. 가능한 수의 배정 수를 구하시오.",
+  "task": "고정된 원탁 자리의 서로 구별되는 학생 각각에게 S의 수 하나를 배정하는 경우의 수를 n의 식으로 구한다.",
+  "answer": {
+    "expression": "3^n + 2 + (-1)^n",
+    "equivalent_piecewise": {
+      "n_even": "3^n + 3",
+      "n_odd": "3^n + 1"
+    }
+  },
+  "concepts": [
+    {
+      "id": "combinations",
+      "name": "조합",
+      "description": "n개의 이웃 경계 중 k개를 고르는 경우의 수는 C(n,k)이다.",
+      "path_ids": ["type_boundaries_binomial"]
+    },
+    {
+      "id": "binomial_theorem",
+      "name": "이항정리",
+      "description": "짝수항 합을 (1+x)^n을 이용해 정리한다.",
+      "path_ids": ["type_boundaries_binomial"]
+    },
+    {
+      "id": "matrix_trace",
+      "name": "전이행렬과 대각합",
+      "description": "허용되는 이웃 전이를 행렬로 나타내고 닫힌 길이 n 경로를 trace(A^n)으로 센다.",
+      "path_ids": ["transfer_matrix"]
+    }
+  ],
+  "reference_paths": [
+    {
+      "path_id": "type_boundaries_binomial",
+      "name": "실수형·허수형 경계 세기와 이항정리",
+      "role": "source_solution_explicitly_structured",
+      "steps": [
+        {
+          "step_id": "tb1",
+          "situation": "이웃한 두 수의 합이 0이 아니어야 한다.",
+          "reasoning": "수들을 R={1,-1}, I={i,-i}로 나누면 같은 형끼리는 같은 수만 이웃할 수 있고 서로 다른 형끼리는 모두 이웃할 수 있다.",
+          "next_action": "각 자리의 형과 형이 바뀌는 경계를 구분한다."
+        },
+        {
+          "step_id": "tb2",
+          "situation": "원탁을 한 바퀴 돌면 처음의 형으로 돌아와야 한다.",
+          "reasoning": "R과 I 사이의 전환은 짝수 번 일어난다.",
+          "next_action": "형이 바뀌는 경계 수 k를 짝수로 제한한다."
+        },
+        {
+          "step_id": "tb3",
+          "situation": "짝수 k>=2개의 경계를 정한다.",
+          "reasoning": "경계 선택 C(n,k), 첫 자리의 형 2가지, k개 구간 각각의 실제 수 2가지이므로 2*C(n,k)*2^k가지다.",
+          "next_action": "짝수 k>=2에 대해 합한다.",
+          "concept_ids": ["combinations"]
+        },
+        {
+          "step_id": "tb4",
+          "situation": "형이 바뀌는 경계가 하나도 없는 k=0 경우를 따로 다룬다.",
+          "reasoning": "모든 자리에 같은 수가 와야 하므로 1, -1, i, -i의 4가지다.",
+          "next_action": "k>=2 합에 4를 더한다."
+        },
+        {
+          "step_id": "tb5",
+          "situation": "짝수 k의 조합 합을 정리한다.",
+          "reasoning": "sum_{k even} C(n,k)*2^k = (3^n+(-1)^n)/2이다.",
+          "next_action": "4 + 2*(sum_{k even} C(n,k)*2^k - 1)을 단순화한다.",
+          "result": "3^n + 2 + (-1)^n",
+          "concept_ids": ["binomial_theorem"]
+        }
+      ]
+    },
+    {
+      "path_id": "transfer_matrix",
+      "name": "허용 전이행렬의 대각합",
+      "role": "valid_alternative_advanced",
+      "steps": [
+        {
+          "step_id": "tm1",
+          "situation": "인접한 두 자리의 수만으로 허용 여부가 결정된다.",
+          "reasoning": "S를 [1,-1,i,-i] 순서로 놓고 A[a,b]=1 if a+b!=0 else 0인 전이행렬을 만든다.",
+          "next_action": "허용되는 길이 n의 닫힌 경로를 센다.",
+          "concept_ids": ["matrix_trace"]
+        },
+        {
+          "step_id": "tm2",
+          "situation": "마지막 학생과 첫 학생도 이웃한다.",
+          "reasoning": "모든 n자리 배정에서 마지막-처음 전이를 포함한 수는 trace(A^n)이다.",
+          "next_action": "A의 고유값을 구한다.",
+          "concept_ids": ["matrix_trace"]
+        },
+        {
+          "step_id": "tm3",
+          "situation": "전이행렬의 고유값이 3, -1, 1, 1이다.",
+          "reasoning": "trace(A^n)은 고유값의 n제곱의 합이다.",
+          "next_action": "고유값의 n제곱을 합한다.",
+          "result": "3^n + 2 + (-1)^n",
+          "concept_ids": ["matrix_trace"]
+        }
+      ],
+      "matrix": [
+        [1, 0, 1, 1],
+        [0, 1, 1, 1],
+        [1, 1, 1, 0],
+        [1, 1, 0, 1]
+      ],
+      "matrix_value_order": ["1", "-1", "i", "-i"]
+    }
+  ],
+  "common_pitfalls": [
+    {
+      "id": "forget_last_first_edge",
+      "description": "마지막 학생과 첫 학생이 이웃한다는 조건을 빠뜨림"
+    },
+    {
+      "id": "forget_imaginary_inverse",
+      "description": "금지되는 이웃쌍에서 i와 -i를 빠뜨림"
+    },
+    {
+      "id": "incorrect_zero_boundary_case",
+      "description": "형 전환 경계가 없는 경우를 4가지로 처리하지 않음"
+    },
+    {
+      "id": "count_seat_permutations",
+      "description": "수 배정만 세어야 하는데 학생들의 좌석 배치를 곱함"
+    }
+  ]
+}

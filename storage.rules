@@ -1,0 +1,10 @@
+rules_version = '2';
+
+service firebase.storage {
+  match /b/{bucket}/o {
+    // 원본 음성은 공개하지 않고 백엔드 서비스 계정만 접근한다.
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

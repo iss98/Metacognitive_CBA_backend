@@ -1,0 +1,37 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // MCCBA는 브라우저가 Firestore를 직접 호출하지 않는다.
+    // 학생·연구자 클라이언트는 FastAPI만 호출하고, FastAPI는 최소 권한의
+    // 서비스 계정으로 Firestore 서버 SDK를 사용한다. 서버 SDK 요청은
+    // Firestore Security Rules가 아니라 Google Cloud IAM으로 통제한다.
+
+    // 참가 코드에는 실험 참여를 허용하는 정보가 들어갈 수 있으므로
+    // 존재 여부 확인을 포함한 모든 클라이언트 접근을 금지한다.
+    match /participant_codes/{codeHash} {
+      allow read, write: if false;
+    }
+
+    // 설문, 전사문, 인터뷰 및 진단 결과는 연구 자료다. 현재 MVP에서는
+    // 한 세션 문서에 포함해 저장하지만, 향후 하위 컬렉션으로 분리해도
+    // 동일하게 브라우저 접근이 차단되도록 재귀 와일드카드를 둔다.
+    match /sessions/{sessionId} {
+      allow read, write: if false;
+
+      match /{sessionDocument=**} {
+        allow read, write: if false;
+      }
+    }
+
+    // 문제·루브릭·RAG 원본도 API를 통해서만 필요한 범위로 제공한다.
+    match /study_content/{contentDocument=**} {
+      allow read, write: if false;
+    }
+
+    // 새 컬렉션을 추가했을 때 실수로 공개되지 않도록 기본 거부한다.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

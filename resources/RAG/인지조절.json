@@ -1,0 +1,750 @@
+[
+  {
+    "question_ko": "나는 충분한 시간을 확보할 수 있도록 학습 속도를 조절한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 4
+    }
+  },
+  {
+    "question_ko": "나는 과제를 시작하기 전에 무엇을 정말 배워야 하는지 생각한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 6
+    }
+  },
+  {
+    "question_ko": "나는 과제를 시작하기 전에 구체적인 목표를 세운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 8
+    }
+  },
+  {
+    "question_ko": "나는 시작하기 전에 학습 자료에 관해 스스로 질문한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 22
+    }
+  },
+  {
+    "question_ko": "나는 문제를 해결할 여러 방법을 생각한 뒤 가장 좋은 방법을 선택한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 23
+    }
+  },
+  {
+    "question_ko": "나는 과제를 시작하기 전에 지시문을 주의 깊게 읽는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 42
+    }
+  },
+  {
+    "question_ko": "나는 목표를 가장 잘 달성할 수 있도록 시간을 조직한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 45
+    }
+  },
+  {
+    "question_ko": "나는 중요한 정보를 만나면 속도를 늦춘다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 9
+    }
+  },
+  {
+    "question_ko": "나는 의식적으로 중요한 정보에 주의를 집중한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 13
+    }
+  },
+  {
+    "question_ko": "나는 새로운 정보의 의미와 중요성에 초점을 둔다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 30
+    }
+  },
+  {
+    "question_ko": "나는 정보를 더 의미 있게 만들기 위해 나만의 예를 만든다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 31
+    }
+  },
+  {
+    "question_ko": "나는 학습하면서 이해를 돕기 위해 그림이나 도식을 그린다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 37
+    }
+  },
+  {
+    "question_ko": "나는 새로운 정보를 나의 말로 바꾸어 표현하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 39
+    }
+  },
+  {
+    "question_ko": "나는 학습에 도움을 받기 위해 글의 조직 구조를 활용한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 41
+    }
+  },
+  {
+    "question_ko": "나는 읽고 있는 내용이 이미 알고 있는 것과 관련되는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 43
+    }
+  },
+  {
+    "question_ko": "나는 공부를 더 작은 단계로 나누려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 47
+    }
+  },
+  {
+    "question_ko": "나는 세부 사항보다 전체적인 의미에 초점을 둔다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 48
+    }
+  },
+  {
+    "question_ko": "나는 목표를 달성해 가고 있는지 주기적으로 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 1
+    }
+  },
+  {
+    "question_ko": "나는 답하기 전에 문제에 대한 여러 대안을 고려한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 2
+    }
+  },
+  {
+    "question_ko": "나는 문제를 해결할 때 모든 선택지를 고려했는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 11
+    }
+  },
+  {
+    "question_ko": "나는 중요한 관계를 이해하기 위해 주기적으로 복습한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 21
+    }
+  },
+  {
+    "question_ko": "나는 공부하면서 전략의 유용성을 분석하고 있음을 발견한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 28
+    }
+  },
+  {
+    "question_ko": "나는 이해 정도를 확인하기 위해 규칙적으로 멈추고 있음을 발견한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 34
+    }
+  },
+  {
+    "question_ko": "나는 새로운 것을 배우는 동안 얼마나 잘하고 있는지 스스로에게 질문한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 49
+    }
+  },
+  {
+    "question_ko": "나는 어떤 것을 이해하지 못할 때 다른 사람에게 도움을 요청한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "수정 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 25
+    }
+  },
+  {
+    "question_ko": "나는 이해하지 못했을 때 전략을 바꾼다.",
+    "is_reverse_item": false,
+    "factors": [
+      "수정 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 40
+    }
+  },
+  {
+    "question_ko": "나는 혼란스러울 때 나의 가정을 다시 평가한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "수정 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 44
+    }
+  },
+  {
+    "question_ko": "나는 새로운 정보가 명확하지 않으면 멈추고 다시 살펴본다.",
+    "is_reverse_item": false,
+    "factors": [
+      "수정 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 51
+    }
+  },
+  {
+    "question_ko": "나는 혼란스러울 때 멈추고 다시 읽는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "수정 전략"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 52
+    }
+  },
+  {
+    "question_ko": "나는 시험을 마치면 얼마나 잘했는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 7
+    }
+  },
+  {
+    "question_ko": "나는 과제를 마친 뒤 더 쉬운 방법이 있었는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 19
+    }
+  },
+  {
+    "question_ko": "나는 학습을 마친 뒤 배운 내용을 요약한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 24
+    }
+  },
+  {
+    "question_ko": "나는 마친 뒤 목표를 얼마나 잘 달성했는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 36
+    }
+  },
+  {
+    "question_ko": "나는 문제를 해결한 뒤 모든 선택지를 고려했는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 38
+    }
+  },
+  {
+    "question_ko": "나는 과제를 마친 뒤 내가 배울 수 있었던 만큼 충분히 배웠는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 50
+    }
+  },
+  {
+    "question_ko": "나는 공부를 시작하기 전에 무엇을 배워야 하는지 생각한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 9,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 과제를 시작하기 전에 무엇을 끝내야 하는지 결정한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "계획"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 18,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "나는 학습하면서 이해를 돕기 위해 그림이나 도식을 그린다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 6,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 중요한 정보에 주의를 집중한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "정보관리 전략"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 11,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 문제를 해결할 여러 방법을 생각한 뒤 가장 좋은 방법을 선택한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 8,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 새로운 것을 배우는 동안 얼마나 잘하고 있는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 10,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 과제를 제시간에 마칠 수 있는지 때때로 확인한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "점검"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 15,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "학교 공부를 마치면 배우고자 했던 것을 배웠는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 7,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "과제를 마친 뒤 더 쉬운 방법이 있었는지 스스로에게 묻는다.",
+    "is_reverse_item": false,
+    "factors": [
+      "평가"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 17,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "수업 시간에 다른 생각을 하느라 중요한 요점을 자주 놓친다.",
+    "is_reverse_item": true,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 33
+    }
+  },
+  {
+    "question_ko": "이 강좌의 읽기 자료를 읽을 때, 읽기에 집중하는 데 도움이 되도록 질문을 만들어 본다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 36
+    }
+  },
+  {
+    "question_ko": "이 수업의 읽기 자료를 읽다가 혼란스러워지면, 앞부분으로 돌아가 이해하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 41
+    }
+  },
+  {
+    "question_ko": "강좌 자료를 이해하기 어려우면, 자료를 읽는 방식을 바꾼다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 44
+    }
+  },
+  {
+    "question_ko": "새로운 강좌 자료를 자세히 공부하기 전에, 어떻게 구성되어 있는지 알아보기 위해 먼저 훑어본다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 54
+    }
+  },
+  {
+    "question_ko": "이 수업에서 공부한 자료를 이해했는지 확인하기 위해 스스로에게 질문한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 55
+    }
+  },
+  {
+    "question_ko": "강좌의 요구사항과 교수자의 수업 방식에 맞추기 위해 공부 방법을 바꾸려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 56
+    }
+  },
+  {
+    "question_ko": "수업을 위해 읽기는 했지만 내용이 무엇이었는지 모르는 경우가 자주 있다.",
+    "is_reverse_item": true,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 57
+    }
+  },
+  {
+    "question_ko": "이 강좌를 공부할 때 단순히 반복해서 읽기보다, 주제를 곰곰이 생각하고 그로부터 무엇을 배워야 하는지 결정하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 61
+    }
+  },
+  {
+    "question_ko": "이 강좌를 공부할 때 내가 잘 이해하지 못한 개념이 무엇인지 파악하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 76
+    }
+  },
+  {
+    "question_ko": "이 수업을 공부할 때 각 학습 시간의 활동을 이끌기 위해 스스로 목표를 세운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 78
+    }
+  },
+  {
+    "question_ko": "수업 중 필기하다가 혼란스러워지면, 나중에 반드시 그 내용을 정리하고 이해한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "메타인지적 자기조절"
+    ],
+    "survey_source": {
+      "instrument": "Motivated Strategies for Learning Questionnaire (MSLQ) — Metacognitive Self-Regulation",
+      "item_number": 79
+    }
+  },
+  {
+    "question_ko": "나는 무언가를 배우기 전에 구체적인 목표를 정한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 4,
+      "original_item_code": "A7"
+    }
+  },
+  {
+    "question_ko": "나는 새로운 주제를 공부하는 동안 나의 수행을 점검한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 5,
+      "original_item_code": "A8"
+    }
+  },
+  {
+    "question_ko": "과제를 마치면 새롭고 중요한 것을 배웠는지 생각해 본다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 6,
+      "original_item_code": "A9"
+    }
+  },
+  {
+    "question_ko": "과제를 마친 뒤 제대로 배웠는지 확인하기 위해 가장 중요한 요점을 반복한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 7,
+      "original_item_code": "A11"
+    }
+  },
+  {
+    "question_ko": "나는 수학에서 배운 지식을 기억하는 방법을 알고 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 9,
+      "original_item_code": "A15"
+    }
+  },
+  {
+    "question_ko": "문제를 해결하다가 혼란스러운 어려움에 부딪히면 다시 해결하려고 시도한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 12,
+      "original_item_code": "A23"
+    }
+  },
+  {
+    "question_ko": "문제를 해결하는 동안 그 문제의 핵심 질문에 답하고 있는지 생각해 본다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 13,
+      "original_item_code": "A24"
+    }
+  },
+  {
+    "question_ko": "문제를 해결할 때 그 문제에 주의를 집중하기 위해 스스로에게 질문한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 11,
+      "original_item_code": "A21"
+    }
+  },
+  {
+    "question_ko": "문제의 최종 풀이를 제시하기 전에 다른 풀이도 찾아보려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 14,
+      "original_item_code": "A25"
+    }
+  },
+  {
+    "question_ko": "과제를 마치면 내가 얼마나 잘 수행했는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 15,
+      "original_item_code": "A26"
+    }
+  }
+]

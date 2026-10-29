@@ -1,0 +1,396 @@
+[
+  {
+    "question_ko": "나는 나의 지적 강점과 약점을 이해한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 5
+    }
+  },
+  {
+    "question_ko": "나는 어떤 정보가 학습에 가장 중요한지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 10
+    }
+  },
+  {
+    "question_ko": "나는 정보를 잘 조직한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 12
+    }
+  },
+  {
+    "question_ko": "나는 교사가 나에게 무엇을 배우기를 기대하는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 16
+    }
+  },
+  {
+    "question_ko": "나는 정보를 잘 기억한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 17
+    }
+  },
+  {
+    "question_ko": "내가 얼마나 잘 학습하는지는 내가 조절할 수 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 20
+    }
+  },
+  {
+    "question_ko": "나는 내가 어떤 내용을 얼마나 잘 이해하는지 잘 판단한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 32
+    }
+  },
+  {
+    "question_ko": "나는 주제에 흥미가 있을 때 더 많이 배운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 46
+    }
+  },
+  {
+    "question_ko": "나는 과거에 효과가 있었던 전략을 사용하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 3
+    }
+  },
+  {
+    "question_ko": "나는 사용하는 각 전략마다 구체적인 목적이 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 14
+    }
+  },
+  {
+    "question_ko": "나는 공부할 때 어떤 전략을 사용하는지 알고 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 27
+    }
+  },
+  {
+    "question_ko": "나는 도움이 되는 학습 전략을 자동적으로 사용하고 있음을 발견한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 33
+    }
+  },
+  {
+    "question_ko": "나는 그 주제에 대해 이미 아는 것이 있을 때 가장 잘 배운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 15
+    }
+  },
+  {
+    "question_ko": "나는 상황에 따라 서로 다른 학습 전략을 사용한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 18
+    }
+  },
+  {
+    "question_ko": "나는 필요할 때 스스로 학습 동기를 불러일으킬 수 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 26
+    }
+  },
+  {
+    "question_ko": "나는 지적 강점을 활용하여 약점을 보완한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 29
+    }
+  },
+  {
+    "question_ko": "나는 각 전략이 언제 가장 효과적인지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Metacognitive Awareness Inventory (MAI)",
+      "item_number": 35
+    }
+  },
+  {
+    "question_ko": "나는 어떤 내용을 이해했는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 1,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 교사가 나에게 무엇을 배우기를 기대하는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 4,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 주제에 흥미가 있을 때 더 많이 배운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "선언적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 12,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 이전에 효과가 있었던 공부 방법을 사용하려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 3,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 때때로 의식적으로 생각하지 않아도 학습 전략을 사용한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "절차적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 16,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "나는 필요할 때 스스로 공부하게 만들 수 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 2,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 그 주제에 대해 이미 아는 것이 있을 때 가장 잘 배운다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 5,
+      "version": "A·B"
+    }
+  },
+  {
+    "question_ko": "나는 학습에서의 강점을 활용하여 약점을 보완한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 13,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "나는 과제에 따라 서로 다른 학습 전략을 사용한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "조건적 지식"
+    ],
+    "survey_source": {
+      "instrument": "Junior Metacognitive Awareness Inventory (Jr. MAI)",
+      "item_number": 14,
+      "version": "B만"
+    }
+  },
+  {
+    "question_ko": "나는 공부한 주제를 얼마나 잘 이해했는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 1,
+      "original_item_code": "A1"
+    }
+  },
+  {
+    "question_ko": "나의 수행은 나의 의지와 노력에 달려 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 2,
+      "original_item_code": "A2"
+    }
+  },
+  {
+    "question_ko": "나는 사전 지식이 있는 주제에 대해 더 많이 배울 수 있다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 3,
+      "original_item_code": "A4"
+    }
+  },
+  {
+    "question_ko": "나는 학습할 주제에 따라 서로 다른 방법을 사용한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 8,
+      "original_item_code": "A12"
+    }
+  },
+  {
+    "question_ko": "나는 문제의 주어진 정보를 적어 보면 그 문제를 더 잘 이해한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 10,
+      "original_item_code": "A18"
+    }
+  },
+  {
+    "question_ko": "문제를 해결할 때 그 문제에 주의를 집중하기 위해 스스로에게 질문한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 11,
+      "original_item_code": "A21"
+    }
+  },
+  {
+    "question_ko": "문제의 최종 풀이를 제시하기 전에 다른 풀이도 찾아보려고 한다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 14,
+      "original_item_code": "A25"
+    }
+  },
+  {
+    "question_ko": "과제를 마치면 내가 얼마나 잘 수행했는지 안다.",
+    "is_reverse_item": false,
+    "factors": [
+      "인지지식",
+      "인지조절"
+    ],
+    "survey_source": {
+      "instrument": "Inventory for the Measurement of Young Pupils’ Metacognitive Abilities in Mathematics",
+      "item_number": 15,
+      "original_item_code": "A26"
+    }
+  }
+]
