@@ -17,10 +17,19 @@ def get_chat_model():
             raise RuntimeError("OPENAI_API_KEY and OPENAI_CHAT_MODEL are required")
         from langchain_openai import ChatOpenAI
 
+        model_options = {
+            "model": settings.openai_chat_model,
+            "api_key": settings.openai_api_key,
+        }
+        if settings.openai_chat_model.startswith("gpt-6"):
+            model_options["reasoning_effort"] = settings.openai_reasoning_effort
+            if settings.openai_reasoning_effort == "none":
+                model_options["temperature"] = 0
+        else:
+            model_options["temperature"] = 0
+
         return ChatOpenAI(
-            model=settings.openai_chat_model,
-            api_key=settings.openai_api_key,
-            temperature=0,
+            **model_options,
         )
     if settings.llm_provider == "google":
         if not settings.gemini_model:

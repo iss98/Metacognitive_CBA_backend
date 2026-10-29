@@ -26,6 +26,7 @@ class Settings(BaseSettings):
 
     openai_api_key: str = ""
     openai_chat_model: str = ""
+    openai_reasoning_effort: Literal["none", "low", "medium", "high", "xhigh", "max"] = "none"
     openai_realtime_transcribe_model: str = "gpt-live-transcribe"
     openai_file_transcribe_model: str = "gpt-transcribe"
     gemini_model: str = ""
