@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import hashlib
 import json
+import random
+import re
 from pathlib import Path
 
 import httpx
@@ -14,6 +16,8 @@ from .agents.model import assess_answer_with_model
 from .config import DATA_DIR, RESOURCE_DIR, Settings, get_settings
 from .content import SURVEY_ITEMS
 from .models import (
+    AudioCheckResult,
+    AudioCheckSubmission,
     ComparisonChoice,
     CreateSessionRequest,
     InterviewAnswer,
@@ -87,7 +91,14 @@ def problem() -> dict:
     path = RESOURCE_DIR / "round_table_problem_schema.json"
     with path.open("r", encoding="utf-8") as stream:
         payload = json.load(stream)
-    return {"id": payload["problem_id"], "title": payload["title"], "stem": payload["stem"]}
+    return {
+        "id": payload["problem_id"],
+        "title": payload["title"],
+        "stem": payload["stem"],
+        "stem_math": payload.get("stem_math", payload["stem"]),
+        "image_path": "/images/round-table-assignment.png",
+        "image_alt": "원탁에 둘러앉은 학생들에게 수를 배정한 예시",
+    }
 
 
 @app.get(f"{settings.api_prefix}/survey-items")
@@ -97,11 +108,36 @@ def survey_items() -> list:
 
 @app.post(f"{settings.api_prefix}/sessions", response_model=StudySession)
 def create_session(payload: CreateSessionRequest, repo: SessionRepository = Depends(repo_dependency)):
+    survey_order = [item.id for item in SURVEY_ITEMS]
+    random.SystemRandom().shuffle(survey_order)
     session = StudySession(
         participant_code=payload.participant_code.strip(),
         execution_mode="demo" if settings.llm_provider == "mock" else "model",
+        survey_order=survey_order,
     )
     return repo.create(session)
+
+
+@app.post(f"{settings.api_prefix}/sessions/{{session_id}}/audio-check", response_model=StudySession)
+def complete_audio_check(
+    session_id: str,
+    payload: AudioCheckSubmission,
+    repo: SessionRepository = Depends(repo_dependency),
+):
+    session = require_session(session_id, repo)
+    require_state(session, {SessionState.AUDIO_CHECK, SessionState.CREATED})
+    expected = "안녕하세요? 오늘 날씨가 참 좋습니다."
+
+    def normalize(value: str) -> str:
+        return re.sub(r"[^0-9A-Za-z가-힣]", "", value).lower()
+
+    session.audio_check = AudioCheckResult(
+        expected_text=expected,
+        transcript=payload.transcript.strip(),
+        normalized_match=normalize(payload.transcript) == normalize(expected),
+    )
+    session.state = SessionState.CREATED
+    return repo.save(session)
 
 
 @app.get(f"{settings.api_prefix}/sessions", response_model=list[SessionSummary])
@@ -137,7 +173,20 @@ def submit_survey(
         missing = sorted(expected - submitted)
         extra = sorted(submitted - expected)
         raise HTTPException(status_code=422, detail={"missing": missing, "extra": extra})
-    session.survey_responses = payload.responses
+    item_by_id = {item.id: item for item in SURVEY_ITEMS}
+    order_by_id = {
+        item_id: index
+        for index, item_id in enumerate(session.survey_order or [item.id for item in SURVEY_ITEMS], start=1)
+    }
+    session.survey_responses = [
+        response.model_copy(
+            update={
+                "factor": item_by_id[response.item_id].factor,
+                "display_order": order_by_id[response.item_id],
+            }
+        )
+        for response in payload.responses
+    ]
     session.state = SessionState.SURVEY_DONE
     return repo.save(session)
 
@@ -243,10 +292,18 @@ async def transcription_token(
     app_settings: Settings = Depends(get_settings),
 ):
     session = require_session(session_id, repo)
-    require_state(session, {SessionState.SURVEY_DONE, SessionState.RECORDING})
+    require_state(
+        session,
+        {SessionState.AUDIO_CHECK, SessionState.SURVEY_DONE, SessionState.RECORDING},
+    )
     if not app_settings.openai_api_key:
         raise HTTPException(status_code=503, detail="OPENAI_API_KEY가 설정되지 않아 데모 전사를 사용해야 합니다.")
     safety_id = hashlib.sha256(session.id.encode("utf-8")).hexdigest()
+    transcription_prompt = (
+        "한국어 음성 입력 확인 문장"
+        if session.state == SessionState.AUDIO_CHECK
+        else "한국어로 수학 문제를 풀며 생각을 소리 내어 말하는 녹음"
+    )
     body = {
         "session": {
             "type": "transcription",
@@ -254,10 +311,10 @@ async def transcription_token(
                 "input": {
                     "transcription": {
                         "model": app_settings.openai_realtime_transcribe_model,
-                        "prompt": "한국어로 수학 문제를 풀며 생각을 소리 내어 말하는 녹음",
+                        "prompt": transcription_prompt,
                         "keywords": ["원탁", "이항정리", "조합", "실수", "허수", "전이행렬"],
                         "languages": ["ko"],
-                        "delay": "medium",
+                        "delay": "low",
                     },
                     "turn_detection": None,
                 }

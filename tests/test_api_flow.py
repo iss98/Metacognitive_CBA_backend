@@ -16,13 +16,37 @@ def test_complete_demo_flow():
     created = client.post("/api/sessions", json={"participant_code": "P-TEST"})
     assert created.status_code == 200
     session_id = created.json()["id"]
+    assert created.json()["state"] == "audio_check"
+    assert len(created.json()["survey_order"]) == 23
+
+    audio_check = client.post(
+        f"/api/sessions/{session_id}/audio-check",
+        json={"transcript": "안녕하세요. 오늘 날씨가 참 좋습니다."},
+    )
+    assert audio_check.status_code == 200
+    assert audio_check.json()["state"] == "created"
+    assert audio_check.json()["audio_check"]["normalized_match"] is True
 
     items = client.get("/api/survey-items").json()
+    item_by_id = {item["id"]: item for item in items}
+    survey_order = audio_check.json()["survey_order"]
     survey = client.put(
         f"/api/sessions/{session_id}/survey",
-        json={"responses": [{"item_id": item["id"], "score": 3} for item in items]},
+        json={
+            "responses": [
+                {
+                    "item_id": item_id,
+                    "score": 3,
+                    "factor": item_by_id[item_id]["factor"],
+                    "display_order": index,
+                }
+                for index, item_id in enumerate(survey_order, start=1)
+            ]
+        },
     )
     assert survey.json()["state"] == "survey_done"
+    assert all(response["factor"] for response in survey.json()["survey_responses"])
+    assert sorted(response["display_order"] for response in survey.json()["survey_responses"]) == list(range(1, 24))
 
     assert client.post(f"/api/sessions/{session_id}/recording/start").json()["state"] == "recording"
     transcript = client.post(

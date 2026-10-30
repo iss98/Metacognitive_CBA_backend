@@ -13,6 +13,7 @@ def utc_now() -> datetime:
 
 
 class SessionState(StrEnum):
+    AUDIO_CHECK = "audio_check"
     CREATED = "created"
     SURVEY_DONE = "survey_done"
     RECORDING = "recording"
@@ -57,10 +58,23 @@ class SurveyItem(BaseModel):
 class SurveyResponse(BaseModel):
     item_id: str
     score: int = Field(ge=1, le=5)
+    factor: Factor | None = None
+    display_order: int | None = Field(default=None, ge=1)
 
 
 class SurveySubmission(BaseModel):
     responses: list[SurveyResponse]
+
+
+class AudioCheckSubmission(BaseModel):
+    transcript: str = Field(min_length=1, max_length=1000)
+
+
+class AudioCheckResult(BaseModel):
+    expected_text: str
+    transcript: str
+    normalized_match: bool
+    completed_at: datetime = Field(default_factory=utc_now)
 
 
 class TranscriptSegment(BaseModel):
@@ -162,10 +176,12 @@ class ComparisonChoice(BaseModel):
 class StudySession(BaseModel):
     id: str = Field(default_factory=lambda: uuid4().hex)
     participant_code: str
-    state: SessionState = SessionState.CREATED
+    state: SessionState = SessionState.AUDIO_CHECK
     state_version: int = 1
     created_at: datetime = Field(default_factory=utc_now)
     updated_at: datetime = Field(default_factory=utc_now)
+    audio_check: AudioCheckResult | None = None
+    survey_order: list[str] = Field(default_factory=list)
     survey_responses: list[SurveyResponse] = Field(default_factory=list)
     transcript_segments: list[TranscriptSegment] = Field(default_factory=list)
     audio_path: str | None = None

@@ -21,6 +21,12 @@ data/audio/*
 .test-data/
 .tmp/
 
+# LangGraph local runtime state
+# Keep langgraph.json tracked; it defines the graphs available to Studio.
+.langgraph_api/
+*.pckl
+*.pkl
+
 # Tooling and OS files
 .gcloud/
 .idea/

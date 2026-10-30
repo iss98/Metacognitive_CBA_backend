@@ -1,0 +1,8 @@
+{
+  "dependencies": ["."],
+  "graphs": {
+    "prepare_interview": "app.agents.graphs:PREPARE_GRAPH",
+    "rating": "app.agents.graphs:RATING_GRAPH"
+  },
+  "env": ".env"
+}

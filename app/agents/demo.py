@@ -76,6 +76,7 @@ def build_student_schema(session: StudySession) -> StudentSchema:
 
 def build_question_plan(schema: StudentSchema) -> list[InterviewQuestion]:
     concept = schema.mentioned_concepts[0] if schema.mentioned_concepts else "이 문제의 핵심 개념"
+    observed_action = schema.events[0].action if schema.events else "문제의 조건을 이용해 풀이를 진행한 것"
     specs = [
         (Factor.PLANNING, "direct", "문제를 처음 읽었을 때 무엇을 구해야 한다고 정리했고, 풀이를 시작하기 전에 어떤 계획을 세웠나요?", "목표 설정과 사전 계획"),
         (Factor.PLANNING, "direct", "계산을 시작하기 전에 문제의 조건을 어떻게 확인했고, 어떤 순서로 풀기로 했나요?", "조건 확인과 실행 순서"),
@@ -87,13 +88,13 @@ def build_question_plan(schema: StudentSchema) -> list[InterviewQuestion]:
         (Factor.EVALUATION, "direct", "풀이를 마치고 나서 더 나은 방법이나 다음에 달리할 점을 생각했나요?", "풀이 회고와 다음 적용"),
         (Factor.DECLARATIVE, "direct", f"이번 풀이에서 {with_particle(concept, '과', '와')} 관련해 자신이 잘 이해했다고 생각한 부분은 무엇인가요?", "자신의 강점 인식"),
         (Factor.DECLARATIVE, "direct", "이번 문제에서 자신에게 가장 어려웠던 개념이나 약점은 무엇이었고, 그렇게 판단한 근거는 무엇인가요?", "자신의 약점 인식"),
-        (Factor.DECLARATIVE, "reverse", f"반대로, {with_particle(concept, '을', '를')} 잘 이해하지 못했다고 볼 수 있는 장면이 있었나요? 없었다면 그렇게 판단한 근거를 말해 주세요.", "반대 관점에서 자기지식 점검"),
+        (Factor.DECLARATIVE, "reverse", f"풀이를 보면 {with_particle(concept, '을', '를')} 전혀 알지 못한 채 사용한 것처럼 보이는데, 실제로도 그랬나요? 당시 풀이를 근거로 설명해 주세요.", f"스키마에는 {concept}의 언급 또는 사용이 기록되어 있으나 이를 알지 못했다고 뒤집어 제시하여 자기지식의 정확성을 확인"),
         (Factor.PROCEDURAL, "direct", "이번 문제에서 사용한 핵심 전략을 실제로 어떤 순서로 실행했는지 설명해 주세요.", "전략 실행 절차"),
         (Factor.PROCEDURAL, "direct", "그 전략의 각 단계에는 어떤 목적이 있었고, 제대로 실행됐는지는 어떻게 알았나요?", "전략 목적과 확인 방법"),
-        (Factor.PROCEDURAL, "reverse", "사용한 전략을 제대로 적용하지 못했다고 볼 수 있는 부분이 있었나요? 있었다면 어느 단계였나요?", "반대 관점에서 절차지식 점검"),
+        (Factor.PROCEDURAL, "reverse", f"풀이에서는 '{observed_action}'과 같은 절차를 따로 사용하지 않고 바로 답을 정한 것처럼 보이는데, 실제로도 그랬나요?", f"스키마에 기록된 행동 '{observed_action}'을 하지 않았다고 뒤집어 제시하여 절차에 대한 자기이해를 확인"),
         (Factor.CONDITIONAL, "direct", "여러 방법 중에서 이번 방법을 선택한 이유는 무엇이며, 어떤 문제 조건이 그 선택에 영향을 주었나요?", "전략 선택 조건"),
         (Factor.CONDITIONAL, "direct", "문제 조건이 어떻게 달라지면 다른 전략을 선택할 것 같나요? 구체적인 예를 들어 주세요.", "전략 전환 조건"),
-        (Factor.CONDITIONAL, "reverse", "이번 상황에서 선택한 전략이 적절하지 않았을 가능성은 없었나요? 그렇게 판단한 이유는 무엇인가요?", "반대 관점에서 조건지식 점검"),
+        (Factor.CONDITIONAL, "reverse", f"'{observed_action}'이라는 방법은 문제 조건과 관계없이 우연히 선택한 것 같은데, 실제로도 조건을 고려하지 않았나요?", f"스키마에 기록된 전략 행동 '{observed_action}'과 문제 조건의 관련성을 부정하여 전략 선택 조건에 대한 자기이해를 확인"),
     ]
     return [
         InterviewQuestion(
@@ -136,13 +137,13 @@ def rate_items(session: StudySession) -> list[ItemRating]:
     settings = get_settings()
     turns_by_question: dict[str, list] = defaultdict(list)
     for turn in session.interview_turns:
-        if turn.role == "student":
-            turns_by_question[turn.question_id].append(turn)
+        turns_by_question[turn.question_id].append(turn)
 
     ratings: list[ItemRating] = []
     for question in session.questions:
         turns = turns_by_question.get(question.id, [])
-        answer = " ".join(turn.text for turn in turns).strip()
+        student_turns = [turn for turn in turns if turn.role == "student"]
+        answer = " ".join(turn.text for turn in student_turns).strip()
         transcript_ids = _related_transcript_ids(session, answer)
         if not answer:
             ratings.append(
@@ -151,7 +152,7 @@ def rate_items(session: StudySession) -> list[ItemRating]:
                     factor=question.factor,
                     question_direction=question.direction,
                     status="unable_to_rate",
-                    interview_turn_ids=[],
+                    interview_turn_ids=[turn.id for turn in turns],
                     transcript_segment_ids=[],
                     evidence_alignment="insufficient",
                     reason="질문에 대한 학생 응답이 없어 평가할 수 없습니다.",

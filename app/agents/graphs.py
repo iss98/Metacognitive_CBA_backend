@@ -61,11 +61,25 @@ RATING_GRAPH = rating_builder.compile()
 
 
 def prepare_interview_assets(session: StudySession) -> tuple[StudentSchema, list[InterviewQuestion]]:
-    result = PREPARE_GRAPH.invoke({"session": session})
+    result = PREPARE_GRAPH.invoke(
+        {"session": session},
+        config={
+            "run_name": "mccba_prepare_interview",
+            "tags": ["mccba", "prepare-interview", session.execution_mode],
+            "metadata": {"session_id": session.id, "state": session.state.value},
+        },
+    )
     return result["student_schema"], result["questions"]
 
 
 def rate_completed_interview(session: StudySession) -> tuple[list[ItemRating], list[FactorRating]]:
-    result = RATING_GRAPH.invoke({"session": session})
+    result = RATING_GRAPH.invoke(
+        {"session": session},
+        config={
+            "run_name": "mccba_rate_interview",
+            "tags": ["mccba", "rating", session.execution_mode],
+            "metadata": {"session_id": session.id, "state": session.state.value},
+        },
+    )
     return result["item_ratings"], result["factor_ratings"]
 

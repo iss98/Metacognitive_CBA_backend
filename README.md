@@ -33,6 +33,29 @@ Copy-Item .env.example .env
 .\.venv\Scripts\python.exe -m pytest -q
 ```
 
+## LangGraph Studio와 LangSmith 추적
+
+`langgraph.json`에는 회고 질문 준비 그래프와 진단 그래프가 각각 등록되어 있다.
+
+1. LangSmith에서 API 키를 발급한다.
+2. `.env`에 아래 값을 추가한다.
+
+```text
+LANGSMITH_TRACING=true
+LANGSMITH_API_KEY=발급받은_키
+LANGSMITH_PROJECT=mccba-demo
+```
+
+3. 개발 의존성을 설치하고 Studio용 로컬 서버를 실행한다.
+
+```powershell
+.\.venv\Scripts\python.exe -m pip install -r requirements-dev.txt
+$env:PYTHONUTF8 = "1"
+.\.venv\Scripts\langgraph.exe dev
+```
+
+브라우저에서 Studio가 열리면 `prepare_interview`와 `rating` 그래프의 노드, 간선, 실행 중 상태 변화를 확인할 수 있다. Cloud Run의 실제 실행도 추적하려면 같은 세 개의 `LANGSMITH_*` 환경 변수를 Cloud Run 서비스에 추가하고 새 버전을 배포한다.
+
 ## 컨테이너 확인
 
 Docker가 설치되어 있다면 다음과 같이 확인한다.

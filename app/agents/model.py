@@ -104,11 +104,19 @@ def build_question_plan_with_model(schema: StudentSchema) -> list[InterviewQuest
         [
             (
                 "system",
-                "당신은 수학 문제 풀이 후 회고 인터뷰의 기본 질문을 설계한다. "
-                "질문은 점수를 암시하거나 정답 풀이를 알려주지 않는다. 인지조절은 전사만으로 부족한 실제 생각을 추가 확인한다. "
-                "인지지식은 자신의 강점·약점, 전략 실행 방법, 전략 선택 조건을 묻는다. "
+                "당신은 학생의 실제 수학 문제 풀이를 되짚는 회고 인터뷰의 기본 질문을 설계한다. "
+                "모든 질문은 제공된 학생 풀이 스키마의 구체적인 개념, 행동, 발화 또는 사건을 근거로 개인화해야 한다. "
+                "어느 학생에게나 그대로 사용할 수 있는 일반적인 질문을 만들지 마라. 학생이 하지 않은 행동을 정방향 질문의 사실처럼 제시하지 말고, "
+                "학생이 실제로 보인 행동을 정확하게 짚은 뒤 그때의 생각·이유·판단 기준·결과를 회고하게 하라. "
+                "질문은 점수를 암시하거나 정답 풀이를 알려주지 않는다. 인지조절 질문은 전사만으로 확인하기 어려운 계획·점검·수정·평가의 실제 생각을 추가 확인한다. "
+                "인지지식 질문은 자신의 강점과 약점, 사용한 전략의 실행 방법, 그 전략을 선택한 조건에 대한 학생의 자기이해를 확인한다. "
+                "여기서 reverse는 일반적인 설문 역채점 문항이 아니라 학생 풀이 스키마와 반대되는 전제를 의도적으로 제시하는 함정 질문이다. "
+                "스키마에서 학생이 한 행동을 하지 않았다고 말하거나, 하지 않은 행동을 했다고 말하거나, 알고 사용한 내용을 모른다고 말하거나, "
+                "모르거나 잘못 사용한 내용을 안다고 말하는 방식으로 구성한다. 학생이 그 잘못된 전제를 알아차리고 자신의 실제 풀이를 근거로 바로잡을 수 있는지 확인해야 한다. "
+                "함정이라는 사실은 학생에게 밝히지 말고 자연스러운 회고 질문으로 작성하라. reverse 문항의 intent에는 실제 스키마 근거와 질문에서 뒤집은 전제를 명시해 이후 진단이 참조할 수 있게 하라. "
                 "정확히 17문항을 만든다: 계획·점검·수정전략·평가 각 2문항, 선언적·절차적·조건적 지식 각 3문항. "
-                "인지지식 세 factor에는 각각 정확히 한 개 이상의 reverse 문항을 포함한다. order는 1부터 17까지이며 모든 status는 pending이다.",
+                "선언적·절차적·조건적 지식에는 각각 정확히 한 개의 reverse 문항을 포함하고 나머지는 direct로 만든다. "
+                "order는 1부터 17까지이며 모든 status는 pending이다.",
             ),
             (
                 "human",
@@ -135,10 +143,10 @@ def build_question_plan_with_model(schema: StudentSchema) -> list[InterviewQuest
         factor_questions = [item for item in questions if item.factor == factor]
         if len(factor_questions) != count:
             raise ValueError(f"Invalid question count for {factor.value}")
-        if factor in {Factor.DECLARATIVE, Factor.PROCEDURAL, Factor.CONDITIONAL} and not any(
-            item.direction == "reverse" for item in factor_questions
-        ):
-            raise ValueError(f"Missing reverse question for {factor.value}")
+        if factor in {Factor.DECLARATIVE, Factor.PROCEDURAL, Factor.CONDITIONAL}:
+            reverse_count = sum(item.direction == "reverse" for item in factor_questions)
+            if reverse_count != 1:
+                raise ValueError(f"Expected exactly one reverse question for {factor.value}")
     return questions
 
 
@@ -171,18 +179,21 @@ def _rate_one(session: StudySession, question: InterviewQuestion) -> ItemRating:
     if model is None:
         raise RuntimeError("LLM provider is not configured")
     turns = [turn for turn in session.interview_turns if turn.question_id == question.id]
-    student_turns = [turn for turn in turns if turn.role == "student"]
     structured = model.with_structured_output(ItemRating)
     result = structured.invoke(
         [
             (
                 "system",
-                "당신은 문항 단위 메타인지 진단 평가자다. 수학 정답 여부가 아니라 해당 문항에서 드러난 역량의 질을 평가한다. "
-                "1점은 학생의 명시적 낮은 근거가 있을 때만 주고, 자료 부족은 unable_to_rate로 처리한다. "
-                "2점은 의도만 있고 언제·무엇을·왜 했는지가 모호함, 3점은 구체 장면과 행동·이유가 있으나 실행·효과·한계 일부가 빠짐, "
-                "4점은 장면·순서·이유·결과 확인이 일관됨, 5점은 조정 이유·한계·대안·다음 적용까지 설명함을 뜻한다. "
-                "역방향 질문도 높은 역량이 높은 점수가 되게 의미를 해석하며 6-원점수 공식을 쓰지 않는다. "
-                "전사에 없다는 사실만으로 감점하지 말고 인터뷰와 전사의 일치·보완·상충을 명시하라.",
+                "당신은 회고 인터뷰 문항별 진단 평가자다. 수학 정답 여부나 답변의 길이가 아니라 해당 문항에서 드러난 역량 수준을 평가한다. "
+                "점수는 일반적인 5점 리커트 수준으로 해석한다: 1점 매우 낮음, 2점 낮음, 3점 보통, 4점 높음, 5점 매우 높음. "
+                "해당 수준을 판단할 명시적 근거가 부족하면 낮은 점수를 추정하지 말고 unable_to_rate로 처리한다. "
+                "인터뷰의 해당 문항에 속한 전체 대화를 주 평가 자료로 사용하고, 학생 풀이 스키마와 전사문은 이를 확인·보완하는 부 자료로 사용한다. "
+                "다른 문항에서 나온 답변을 현재 문항의 근거로 가져오지 마라. "
+                "direct 문항에서는 학생이 자신의 실제 행동·지식·전략과 그 이유를 얼마나 정확하게 인식하고 설명하는지 평가한다. "
+                "reverse 문항은 별도의 역채점 공식을 적용하는 문항이 아니다. 질문의 전제가 학생 풀이 스키마의 실제 모습과 반대라는 점을 고려하여, "
+                "학생이 잘못된 전제를 알아차리고 실제 자신의 행동이나 지식을 근거로 바로잡는지, 또는 잘못된 전제에 동의하면서 자기이해의 불일치를 보이는지를 진단 근거로 삼는다. "
+                "단순한 동의·부정만으로 점수를 결정하지 말고 설명의 내용과 스키마 근거의 일치 여부를 함께 판단한다. "
+                "인터뷰와 스키마·전사의 일치, 보완 또는 상충을 reason에 명시하라.",
             ),
             (
                 "human",
@@ -200,7 +211,9 @@ def _rate_one(session: StudySession, question: InterviewQuestion) -> ItemRating:
     result.question_id = question.id
     result.factor = question.factor
     result.question_direction = question.direction
-    result.interview_turn_ids = [turn.id for turn in student_turns]
+    # Preserve an auditable reference to every turn supplied to this item-level rating,
+    # including the base question, follow-ups, and all student answers.
+    result.interview_turn_ids = [turn.id for turn in turns]
     result.rubric_version = get_settings().rubric_version
     valid_segment_ids = {segment.id for segment in session.transcript_segments}
     result.transcript_segment_ids = [item for item in result.transcript_segment_ids if item in valid_segment_ids]
